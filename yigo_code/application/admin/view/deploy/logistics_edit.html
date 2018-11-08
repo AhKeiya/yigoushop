@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 1.3
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Head -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:42 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8"/>
+    <title>物流修改</title>
+
+    <meta name="description" content="Form Data Pickers"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="shortcut icon" href="/static/assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="/static/css/bootstrap483f.css?v=CuH9RlQV46Coteojf9QViKkxtVTYhGCqM_FnAICT2Q01" rel="stylesheet"/>
+
+    <link id="bootstrap-rtl-link" href="#" rel="stylesheet"/>
+
+
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link href="/static/css/beyondb0c4.css?v=HG5KqCPVygOgntL8rUT6gSZJeFQKNzDTyenG4hDN0Gc1" rel="stylesheet"/>
+
+    <link id="skin-link" href="#" rel="stylesheet" type="text/css"/>
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="/static/bundles/skin1da7?v=wnApff0StMBrwaH1cwHy5AOi7bqNwLDNYXhdxWGe1sg1"></script>
+
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        <!-- /Page Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="#">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="/static/index.html">
+                            物流管理
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        主页
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            网站设置
+                            <i class="fa fa-angle-right"></i>
+                            全部物流
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <div style="margin-top: 1%" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                            onClick="javascript:window.location.href = '/admin/deploy/logistics'">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="">
+                                        编辑物流信息
+                                    </h4>
+                                </div>
+                                <form action="/admin/deploy/logistics_edit" method="post">
+                                    <input type="hidden" name="lid" value="{$logistics.lid}">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="">物流名称：</label>
+                                            <input class="form-control input-xs" name="logistics_cnname" type="text"
+                                                   value="{$logistics.logistics_cnname}">
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="">物流添加编号：</label>
+                                            <input class="form-control input-xs" name="order_logistics_id" type="text"
+                                                   value="{$logistics.order_logistics_id}">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                onClick="javascript:window.location.href = '/admin/deploy/logistics'">返回
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            提交
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="footer">
+                                <code>&lt; th class="hidden-xs" &gt;</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+    <!--物流编辑模态框-->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel1">
+                        编辑物流信息
+                    </h4>
+                </div>
+                <form action="/admin/deploy/logistics_edit" method="post">
+                    <input type="hidden" value="">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="">物流名称：</label>
+                            <input class="form-control input-xs" name="logistics_cnname" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="">物流单号：</label>
+                            <input class="form-control input-xs" name="logistics_number" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!--Basic Scripts-->
+    <script src="/static/bundles/jquery8660?v=OCFAn1NcaUrZ5VLi0Kt8lefDjHOF7mvtdw-2FUpZjJ01"></script>
+
+    <script src="/static/bundles/bootstrapb39f?v=lnv04LybUYw6yivF1vddIyei4SxfYRrlfuBp1ML6vk01"></script>
+
+
+    <!--Beyond Scripts-->
+    <script src="/static/bundles/beyond2170?v=7yHpAaDmMiC32hwiTNZmLsxzgkFHpn9AwtA7zZfapEE1"></script>
+
+
+    <!--Page Related Scripts-->
+
+    <!--Jquery Select2-->
+    <script src="/static/assets/js/select2/select2.js"></script>
+    <!--Bootstrap Tags Input-->
+    <script src="/static/assets/js/tagsinput/bootstrap-tagsinput.js"></script>
+
+    <!--Bootstrap Date Picker-->
+    <script src="/static/assets/js/datetime/bootstrap-datepicker.js"></script>
+
+    <!--Bootstrap Time Picker-->
+    <script src="/static/assets/js/datetime/bootstrap-timepicker.js"></script>
+
+    <!--Bootstrap Date Range Picker-->
+    <script src="/static/assets/js/datetime/moment.js"></script>
+    <script src="/static/assets/js/datetime/daterangepicker.js"></script>
+
+    <!--Jquery Autosize-->
+    <script src="/static/assets/js/textarea/jquery.autosize.js"></script>
+
+    <!--Fuelux Spinbox-->
+    <script src="/static/assets/js/fuelux/spinbox/fuelux.spinbox.min.js"></script>
+
+    <!--jQUery MiniColors-->
+    <script src="/static/assets/js/colorpicker/jquery.minicolors.js"></script>
+
+    <!--jQUery Knob-->
+    <script src="/static/assets/js/knob/jquery.knob.js"></script>
+
+    <!--noUiSlider-->
+    <script src="/static/assets/js/slider/jquery.nouislider.js"></script>
+
+    <!--jQRangeSlider-->
+    <script src="/static/assets/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/static/assets/js/slider/jQRangeSlider/jQAllRangeSliders-withRuler-min.js"></script>
+
+
+</body>
+<!--  /Body -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:49 GMT -->
+</html>

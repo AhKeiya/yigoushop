@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 1.3
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Head -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Form Data Pickers</title>
+
+    <meta name="description" content="Form Data Pickers" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/static/assets/img/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/static/jqalert/example/buttons.css">
+    <!--Basic Styles-->
+    <link href="/static/css/bootstrap483f.css?v=CuH9RlQV46Coteojf9QViKkxtVTYhGCqM_FnAICT2Q01" rel="stylesheet"/>
+
+    <link id="bootstrap-rtl-link" href="#" rel="stylesheet" />
+
+
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link href="/static/css/beyondb0c4.css?v=HG5KqCPVygOgntL8rUT6gSZJeFQKNzDTyenG4hDN0Gc1" rel="stylesheet"/>
+
+    <link id="skin-link" href="#" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="/static/bundles/skin1da7?v=wnApff0StMBrwaH1cwHy5AOi7bqNwLDNYXhdxWGe1sg1"></script>
+
+
+
+
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        <!-- /Page Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="#">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="#">
+                            营销
+                        </a>
+                    <li class="active">
+
+                        <a href="off_price">
+                            折扣
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="off_price">
+                            删除折扣活动
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        主页
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            营销
+                            <i class="fa fa-angle-right"></i>
+                            删除折扣活动
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <div style="margin-top: 1%" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-top bordered-palegreen">
+                                <span class="widget-caption">删除折扣</span>
+                            </div>
+                            <div class="widget-body">
+                                <div class="collapse in">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="xsinput">选择删除的折扣活动：</label>
+                                            <div>
+                                                <select id="select_id">
+                                                    <option>请选择</option>
+                                                    {foreach $data as $i}
+                                                    <option value="{$i.goods_off_name}">{$i.goods_off_name}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button class="btn btn-blue btn-lg" type="button" id="del">删除</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+
+
+<!--Basic Scripts-->
+<script src="/static/bundles/jquery8660?v=OCFAn1NcaUrZ5VLi0Kt8lefDjHOF7mvtdw-2FUpZjJ01"></script>
+
+<script src="/static/bundles/bootstrapb39f?v=lnv04LybUYw6yivF1vddIyei4SxfYRrlfuBp1ML6vk01"></script>
+
+
+<!--Beyond Scripts-->
+<script src="/static/bundles/beyond2170?v=7yHpAaDmMiC32hwiTNZmLsxzgkFHpn9AwtA7zZfapEE1"></script>
+
+
+<!--Page Related Scripts-->
+
+<!--Jquery Select2-->
+<script src="/static/assets/js/select2/select2.js"></script>
+<!--Bootstrap Tags Input-->
+<script src="/static/assets/js/tagsinput/bootstrap-tagsinput.js"></script>
+
+<!--Bootstrap Date Picker-->
+<script src="/static/assets/js/datetime/bootstrap-datepicker.js"></script>
+
+<!--Bootstrap Time Picker-->
+<script src="/static/assets/js/datetime/bootstrap-timepicker.js"></script>
+
+<!--Bootstrap Date Range Picker-->
+<script src="/static/assets/js/datetime/moment.js"></script>
+<script src="/static/assets/js/datetime/daterangepicker.js"></script>
+
+<!--Jquery Autosize-->
+<script src="/static/assets/js/textarea/jquery.autosize.js"></script>
+
+<!--Fuelux Spinbox-->
+<script src="/static/assets/js/fuelux/spinbox/fuelux.spinbox.min.js"></script>
+
+<!--jQUery MiniColors-->
+<script src="/static/assets/js/colorpicker/jquery.minicolors.js"></script>
+
+<!--jQUery Knob-->
+<script src="/static/assets/js/knob/jquery.knob.js"></script>
+
+<!--noUiSlider-->
+<script src="/static/assets/js/slider/jquery.nouislider.js"></script>
+
+<!--jQRangeSlider-->
+<script src="/static/assets/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/static/assets/js/slider/jQRangeSlider/jQAllRangeSliders-withRuler-min.js"></script>
+
+<script src="/static/js/goods_off_del.js"></script>
+
+<script src="/static/jqalert/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="/static/jqalert/dist/sweetalert2.min.css">
+
+<!-- IE support -->
+<script src="/static/jqalert/lib/es6-promise.min.js"></script>
+
+<!-- Promise.finally support -->
+<script src="/static/jqalert/lib/finally.js"></script>
+
+</body>
+<!--  /Body -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:49 GMT -->
+</html>

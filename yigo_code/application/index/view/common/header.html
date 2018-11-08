@@ -1,0 +1,208 @@
+<!-- Ads Banner -->
+<div id="adv-banner">
+    <div id="ads-banner" class="grid--full grid--table">
+        <div class="ads-banner-slider owl-carousel">
+            <div class="ads-item">
+                <img src="/static/index/images/ads1.png" alt="ads banner 1">
+            </div>
+            <div class="ads-item">
+                <img src="/static/index/images/ads2.png" alt="ads banner 2">
+            </div>
+            <div class="ads-item">
+                <img src="/static/index/images/ads3.png" alt="ads banner 3">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Other -->
+<div id="top-header" class="grid--full grid--table">
+    <div class="wrapper">
+        <div id="topother-header" class="grid--full grid--table">
+            <div class="grid__item one-half top-header-left">
+                {if condition="$Think.session.username neq null"}
+                欢迎{$Request.session.username}! &nbsp;&nbsp;
+                <span>
+                            <a href="/index/users/logout">退出</a>
+                    </span>
+                {else if}
+                <span>
+                <a href="/index/users/login">请登录</a>!
+                <a href="/index/users/register">注册</a>!
+                    </span>
+                {/if}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Header -->
+<header class="site-header">
+    <div class="wrapper">
+        <div id="main-header" class="grid--full grid--table">
+            <div class="grid__item small--one-whole medium--one-whole two-eighths">
+                <h1 class="site-header__logo large--left" itemscope="" itemtype="http://schema.org/Organization">
+                    <a href="index-2.html" itemprop="url" class="site-header__logo-link">
+                        <img src="/static/index/images/logo.png" alt="Home Market Red" itemprop="logo">
+                    </a>
+                </h1>
+            </div>
+            <div class="grid__item small--one-whole medium--one-whole four-eighths mobile-bottom">
+                <div class="large--hide medium-down--show navigation-icon">
+                    <div class="grid">
+                        <div class="grid__item one-half">
+                            <div class="site-nav--mobile">
+                                <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left"
+                                        aria-controls="NavDrawer" aria-expanded="false">
+                                    <span class="icon icon-hamburger" aria-hidden="true"></span>
+                                    <span class="fallback-text">Menu</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-header__search">
+                    <form action="" method="get" class="input-group search-bar">
+                        <div class="collections-selector">
+                            <select class="single-option-selector" data-option="collection-option"
+                                    id="collection-option" name="collection">
+                                <option value="all">所有分类</option>
+                                <option value="beauty-health">Beauty &amp; Health</option>
+                                <option value="book">Book</option>
+                                <option value="camera">Camera - Camcorder</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="appliances">Home Appliances</option>
+                                <option value="homelife">Homelife</option>
+                                <option value="kids-baby">Kids &amp; Baby</option>
+                                <option value="smartphones">Smartphones &amp; Cell Phones</option>
+                                <option value="sport">Sport &amp; Outdoor</option>
+                                <option value="stationery">Stationery</option>
+                            </select>
+                        </div>
+                        <input type="hidden" name="type" value="product">
+                        <input type="search" name="q" value="" placeholder="搜索商品"
+                               class="input-group-field st-default-search-input" aria-label="Search our store">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn icon-fallback-text">
+                                <i class="fa fa-search"></i>
+                                <span class="fallback-text">搜索</span>
+                            </button>
+                        </span>
+                    </form>
+                </div>
+                <div class="large--hide medium-down--show navigation-cart">
+                    <div class="grid__item text-right">
+                        <div class="site-nav--mobile">
+                            <a href="cart.html" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer"
+                               aria-expanded="false">
+                                <span class="icon-fallback-text">
+                                    <span class="icon icon-cart" aria-hidden="true"></span>
+                                    <span class="fallback-text">Shopping Cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid__item small--one-whole two-eighths medium-down--hide">
+                <ul class="link-list">
+                    <li class="header-account">
+                        <a href="/index/account/users" id="login_link">
+                            <i class="fa fa-user"></i>
+                            <span class="name">我的易购</span>
+                        </a>
+                    </li>
+                    <li class="header-wishlist">
+                        <a href="/index/order/wishlist">
+                            <i class="fa fa-star"></i>
+                            <span class="name">收藏夹</span>
+                        </a>
+                    </li>
+                    <li class="header-cart">
+                        <a href="/index/cart/cart" class="site-header__cart-toggle js-drawer-open-right"
+                           aria-controls="CartDrawer" aria-expanded="false">
+                            <i class="fa fa-shopping-basket"></i>
+                            <span id="CartCount">3</span>
+                            <span class="name">购物车</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Navigation Bar -->
+<nav class="nav-bar">
+    <div class="wrapper">
+        <div class="medium-down--hide">
+            <!-- begin site-nav -->
+            <ul class="site-nav" id="AccessibleNav">
+                <li class="site-nav--active">
+                    <a href="/index/Index/Index" class="site-nav__link">
+                        <span>主页</span>
+                    </a>
+                </li>
+                <li class="site-nav--has-dropdown" aria-haspopup="true">
+                    <a href="collection.html" class="site-nav__link">
+                        <span>商品分类</span>
+                        <span class="icon icon-arrow-down" aria-hidden="true"></span>
+                    </a>
+                    <ul class="site-nav__dropdown">
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Book</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Health &amp; Beatuty</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Homelife</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Home Appliances</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Smartphones &amp; Cell Phones</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Camera - Camcorder</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Accessories</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Kids &amp; Baby</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Toy and Gift</a>
+                        </li>
+                        <li>
+                            <a href="collection.html" class="site-nav__link">Stationery</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/index/index/hot" class="site-nav__link">
+                        <span>热卖</span>
+                        <span class="special_label hot_label">hot</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index/Index/sale" class="site-nav__link">
+                        <span>打折</span>
+                        <span class="special_label sale_label">sale</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index/index/newitem" class="site-nav__link">
+                        <span>新品</span>
+                        <span class="special_label new_label">New</span>
+                    </a>
+                </li>
+            </ul>
+            <script>$(window).ready(function ($) {
+                $('.megamenu__dropdown').css("width", $('#main-header').innerWidth());
+            });
+            $(window).resize(function () {
+                $('.megamenu__dropdown').css("width", $('#main-header').innerWidth());
+            });</script>
+        </div>
+    </div>
+</nav>

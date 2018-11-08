@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 1.3
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Head -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Form Data Pickers</title>
+
+    <meta name="description" content="Form Data Pickers" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/static/assets/img/favicon.png" type="image/x-icon">
+
+    <link type="text/css" rel="stylesheet" href="/static/jeDate/test/jeDate-test.css">
+    <link type="text/css" rel="stylesheet" href="/static/jeDate/skin/jedate.css">
+    
+
+    <!--Basic Styles-->
+    <link href="/static/css/bootstrap483f.css?v=CuH9RlQV46Coteojf9QViKkxtVTYhGCqM_FnAICT2Q01" rel="stylesheet"/>
+
+    <link id="bootstrap-rtl-link" href="#" rel="stylesheet" />
+
+
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link href="/static/css/beyondb0c4.css?v=HG5KqCPVygOgntL8rUT6gSZJeFQKNzDTyenG4hDN0Gc1" rel="stylesheet"/>
+
+    <link id="skin-link" href="#" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="/static/bundles/skin1da7?v=wnApff0StMBrwaH1cwHy5AOi7bqNwLDNYXhdxWGe1sg1"></script>
+
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        <!-- /Page Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="#">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="preferential">
+                            限时折扣
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            添加折扣
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        主页
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            营销
+                            <i class="fa fa-angle-right"></i>
+                            折扣
+                            <i class="fa fa-angle-right"></i>
+                            添加折扣
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <div style="margin-top: 1%" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-top bordered-palegreen">
+                                <span class="widget-caption">添加折扣商品</span>
+                            </div>
+                            <div class="widget-body">
+                                <div class="collapse in">
+                                    <form role="form" action="add_off_data" method="post">
+                                        <div class="form-group">
+                                            <label for="sminput">折扣名称：</label>
+                                            <input class="form-control input-sm" id="sminput"  name="goods_off_name"  type="text" value="">
+                                        </div>
+                                        <label for="sminput">输入折扣：</label>
+                                        <div class="input-group has-info">
+                                            <input type="text" class="form-control" placeholder="输入折扣率" value="" name="goods_off_m">
+                                            <span class="input-group-addon">折</span>
+                                        </div>
+
+                                        <!----------------------------添加折扣--------------------------------->
+
+                                            <table class="table table-striped table-bordered table-hover">
+                                                <thead>
+
+                                                <tr>
+                                                    <th style="width: 5%">
+                                                        <i class=""></i> <div class="checker">
+
+                                                        <label>
+                                                            <input dataid="id-1" type="checkbox" class="group-checkable checkbox-parent" data-set="#flip .checkboxes ">
+                                                            <span class="text"></span>
+                                                        </label>
+                                                    </div>
+                                                    </th>
+
+                                                    <th class="hidden-xs">
+                                                        <i class=""></i> 商品ID
+                                                    </th>
+                                                    <th class="hidden-xs">
+                                                        <i class=""></i> 商品中文名
+                                                    </th>
+                                                    <th style="width: 40%">
+                                                        <i class=""></i> 商品主图
+                                                    </th>
+                                                    <th style="text-align: center">
+                                                        <i class=""></i> 商品状态
+                                                    </th>
+                                                    <th>
+                                                        <i class=""></i> 操作
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {foreach $data as $i}
+                                                <tr>
+                                                    <td>
+                                                        <div class="checker">
+                                                            <label>
+                                                                <input dataid="id-1-{$i.goods_id}" type="checkbox" name="goods_off_id[]" class="checkboxes checkbox-parent checkbox-child qwe" value="{$i.goods_id}">
+                                                                <span class="text"></span>
+                                                            </label>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="hidden-xs">{$i.goods_id}</td>
+                                                    <td class="hidden-xs">{$i.goods_cnname}</td>
+                                                    <td>{if condition="$i['goods_img'] == '' "}暂没图片{/if}<img style="width: 40px" src="" alt=""></td>
+                                                    <td style="text-align: center">
+                                                        {if condition="$i['goods_status'] == 1"}<span class="label label-success">已上架</span><span class="label label-default"></span>{else}<span class="label label-default">未上架</span>{/if}
+                                                    </td>
+
+                                                    <td>
+                                                        <a href="#" class="btn btn-default btn-xs black"><i class="fa fa-trash-o"></i>删除优惠券</a>
+                                                    </td>
+                                                </tr>
+                                                {/foreach}
+                                                </tbody>
+                                            </table>
+                                        <div>
+                                            <div class="form-group">
+                                                <div class="jeitem">
+                                                    <label class="jelabel">选择开始时间：</label>
+                                                    <div class="jeinpbox"><input name="start_time" type="text" class="jeinput" id="ymd01" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="form-group">
+                                                <div class="jeitem">
+                                                    <label class="jelabel">选择结束时间：</label>
+                                                    <div class="jeinpbox"><input name="end_time" type="text" class="jeinput" id="ymd02" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-blue btn-lg" type="submit">下一步</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+
+
+</div>
+
+<!--Basic Scripts-->
+<script src="/static/bundles/jquery8660?v=OCFAn1NcaUrZ5VLi0Kt8lefDjHOF7mvtdw-2FUpZjJ01"></script>
+
+<script src="/static/bundles/bootstrapb39f?v=lnv04LybUYw6yivF1vddIyei4SxfYRrlfuBp1ML6vk01"></script>
+
+
+<!--Beyond Scripts-->
+<script src="/static/bundles/beyond2170?v=7yHpAaDmMiC32hwiTNZmLsxzgkFHpn9AwtA7zZfapEE1"></script>
+
+
+<!--Page Related Scripts-->
+
+<!--Jquery Select2-->
+<script src="/static/assets/js/select2/select2.js"></script>
+<!--Bootstrap Tags Input-->
+<script src="/static/assets/js/tagsinput/bootstrap-tagsinput.js"></script>
+
+<!--Bootstrap Date Picker-->
+<script src="/static/assets/js/datetime/bootstrap-datepicker.js"></script>
+
+<!--Bootstrap Time Picker-->
+<script src="/static/assets/js/datetime/bootstrap-timepicker.js"></script>
+
+<!--Bootstrap Date Range Picker-->
+<script src="/static/assets/js/datetime/moment.js"></script>
+<script src="/static/assets/js/datetime/daterangepicker.js"></script>
+
+<!--Jquery Autosize-->
+<script src="/static/assets/js/textarea/jquery.autosize.js"></script>
+
+<!--Fuelux Spinbox-->
+<script src="/static/assets/js/fuelux/spinbox/fuelux.spinbox.min.js"></script>
+
+<!--jQUery MiniColors-->
+<script src="/static/assets/js/colorpicker/jquery.minicolors.js"></script>
+
+<!--jQUery Knob-->
+<script src="/static/assets/js/knob/jquery.knob.js"></script>
+
+<!--noUiSlider-->
+<script src="/static/assets/js/slider/jquery.nouislider.js"></script>
+
+<!--jQRangeSlider-->
+<script src="/static/assets/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/static/assets/js/slider/jQRangeSlider/jQAllRangeSliders-withRuler-min.js"></script>
+
+
+<script type="text/javascript" src="/static/jeDate/src/jedate.js"></script>
+<!--<script type="text/javascript" src="/static/jeDate/test/demo.js"></script>-->
+<script>
+    jeDate("#ymd01",{
+        isinitVal:false,
+        festival: false,
+        format: 'YYYY-MM-DD hh:mm:ss'
+    });
+
+    jeDate("#ymd02",{
+        isinitVal:false,
+        festival: false,
+        format: 'YYYY-MM-DD hh:mm:ss'
+    });
+</script>
+
+<script type="text/javascript">
+    /* 权限配置 */
+    $(function () {
+        //动态选择框，上下级选中状态变化
+        //涉及两个主要类 input.checkbox-parent  和  input.checkbox-child 和dataid
+        $('input.checkbox-parent').on('change', function () {  //input.checkbox-parent放在顶级和自己全部都要带上
+            var dataid = $(this).attr("dataid");
+            $('input[dataid^=' + dataid + ']').prop('checked', $(this).is(':checked'));
+        });
+        $('input.checkbox-child').on('change', function () { //放在顶级栏目除外的地方input.checkbox-child
+            var dataid = $(this).attr("dataid");
+            dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+            var parent = $('input[dataid=' + dataid + ']');
+            if ($(this).is(':checked')) {
+                parent.prop('checked', true);
+                //循环到顶级
+                while (dataid.lastIndexOf("-") != 2) {
+                    dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                    parent = $('input[dataid=' + dataid + ']');
+                    parent.prop('checked', true);
+                }
+            } else {
+                //父级
+                if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                    parent.prop('checked', false);
+                    //循环到顶级
+                    while (dataid.lastIndexOf("-") != 2) {
+                        dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                        parent = $('input[dataid=' + dataid + ']');
+                        if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                            parent.prop('checked', false);
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+<!--  /Body -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:49 GMT -->
+</html>

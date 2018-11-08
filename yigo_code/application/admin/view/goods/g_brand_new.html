@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>Form Data Pickers</title>
+
+    <link rel="stylesheet" href="/static/c/upload/css/upload.css">
+    <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
+    {include file='photo/chead'}
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        {include file='photo/c_chatbar'}
+
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="/admin/index/index">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="gbrandlst">
+                            品牌
+                        </a>
+                    </li>
+                    <li>
+                        添加品牌
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        品牌
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            添加品牌
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+<!--==============================================================================================================================-->
+
+            <form action="add_g_brand_new" method="post" enctype="multipart/form-data">
+                <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                    <span class="input-group-addon">品牌名称</span>
+                    <input type="text" class="form-control" placeholder="name" name="goods_brand_name">
+                </div>
+
+
+                </br>
+
+                <div class="form-group" style="width: 30%">
+                    <label for="sminput">品牌LOGO：</label>
+                    <input class="form-control input-sm" id="sminput"  name="goods_brand_img"  type="file" value="">
+                </div>
+                </br>
+                <button class="btn btn-success " type="submit"style="margin: 30px;">保存 <i class="fa fa-check right"></i></button>
+            </form>
+
+
+            <!--end==============================================================================================================================-->
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+{include file='photo/clow'}
+
+</body>
+<!--  /Body -->
+
+</html>

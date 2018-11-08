@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
+</head>
+<body>
+
+
+<label>
+    <input type="checkbox" class="group-checkable checkbox-parent"
+           data-set="#flip .checkboxes" dataid="id-1">
+    <span class="text"></span>
+</label>
+
+<label>
+    <input type="checkbox" class="  checkbox-child"
+           data-set="#flip .checkboxes" dataid="id-1">
+    <span class="text"></span>
+</label>
+<label>
+    <input type="checkbox" class="group-checkable checkbox-child"
+           data-set="#flip .checkboxes" dataid="id-1">
+    <span class="text"></span>
+</label>
+
+
+
+<script type="text/javascript">
+    /* 权限配置 */
+    $(function () {
+        //动态选择框，上下级选中状态变化
+        $('input.checkbox-parent').on('change', function () {
+            var dataid = $(this).attr("dataid");
+            $('input[dataid^=' + dataid + ']').prop('checked', $(this).is(':checked'));
+        });
+        $('input.checkbox-child').on('change', function () {
+            var dataid = $(this).attr("dataid");
+            dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+            var parent = $('input[dataid=' + dataid + ']');
+            if ($(this).is(':checked')) {
+                parent.prop('checked', true);
+                //循环到顶级
+                while (dataid.lastIndexOf("-") != 2) {
+                    dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                    parent = $('input[dataid=' + dataid + ']');
+                    parent.prop('checked', true);
+                }
+            } else {
+                //父级
+                if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                    parent.prop('checked', false);
+                    //循环到顶级
+                    while (dataid.lastIndexOf("-") != 2) {
+                        dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                        parent = $('input[dataid=' + dataid + ']');
+                        if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                            parent.prop('checked', false);
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

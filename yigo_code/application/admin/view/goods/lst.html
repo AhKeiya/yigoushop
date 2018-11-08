@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/><!-- /Added by HTTrack -->
+<head>
+    <title>Form Data Pickers</title>
+
+    {include file='photo/chead'}
+
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+    </style>
+
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        {include file='photo/c_chatbar'}
+
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="/admin/index/index">
+                            主页
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        商品列表
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <!--==============================================================================================================================-->
+
+
+            <div class="tabbable">
+                <ul class="nav nav-tabs ">
+                    <li class="tab-danger active">
+                        <a data-toggle="tab" href="#SimpleTab-1" aria-expanded="true">
+                            <trans oldtip="Home" style="">出售中</trans>
+                        </a>
+                    </li>
+                    <li class="tab-success">
+                        <a data-toggle="tab" href="#SimpleTab-2" aria-expanded="false">
+                            <trans oldtip="Profile" style="">已下架</trans>
+                        </a>
+                    </li>
+                    <li class="tab-info"><a data-toggle="tab" href="#SimpleTab-3" aria-expanded="false">
+                        <trans oldtip="More" style="">更多</trans>
+                    </a></li>
+                </ul>
+                <div class="tab-content ">
+
+                    <!--手风琴1--------------------------------->
+
+                    <div class="tab-pane active" id="SimpleTab-1">
+                        <p>
+
+                            <trans oldtip="Raw denim you probably haven't heard of them jean shorts Austin." style="">
+                                <!--表单-->
+                                <form action="batchRemoveGoods" method="post">
+                                    <button class="btn shiny btn-danger " type="submit">批量删除</button>
+                                    <table class="table table-striped table-bordered table-hover dataTable no-footer"
+                                           aria-describedby="simpledatatable_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th style="width: 4%;" class="sorting_disabled" rowspan="1">
+                                                <div class="checker">
+                                                    <label>
+                                                        <input type="checkbox" class="checkbox-parent" dataid="id-2-">
+                                                        <span class="text"></span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" width="30%">
+                                                商品名称
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1">
+                                                价格(元)
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1">
+                                                总库存
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1">
+                                                销量
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" width="10%">
+                                                操作
+                                            </th>
+
+                                        </thead>
+                                        <tbody>
+                                        {volist name='gyes' id='g'}
+
+                                        <tr class="odd">
+                                            <td class="">
+                                                <div class="checker">
+                                                    <label>
+                                                        <input type="checkbox" class="checkbox-child"
+                                                               name="del{$g.goods_id}" value="{$g.goods_id}"
+                                                               dataid="id-2-{$g.goods_id}">
+                                                        <span class="text"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                        <p>创建时间：{$g.create_time}</p>
+                        <div>
+                            <img src="{$g.img_url}" height="50" width="50" style="float: left;"/>
+                            <p style="margin-left:10px"> {$g.goods_cnname} </p>
+                            <span class="label label-danger"><trans oldtip="Danger">热卖</trans></span>
+                            <span class="label label-danger"><trans oldtip="Danger">新品</trans></span>
+                            <span class="label label-danger"><trans oldtip="Danger">打折</trans></span>
+                        </div>
+
+                        </td>
+                        <td class="text-center">
+                            <span style="color: #ff0000;">{$g.goods_price}</span>
+                        </td>
+                        <td class="text-center">
+                            {$g.goods_repertory}
+                        </td>
+                        <td class="text-center">
+                            {$g.goods_sales_volume}
+                        </td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-info btn-xs edit" data-status="{$g.goods_id}"><i
+                                    class="fa fa-edit"></i>
+                                <trans oldtip=" Edit" style="">{if condition="($g['goods_status']==1)"} 下架 {else /} 上架
+                                    {/if}
+                                </trans>
+                            </a>
+                            <a href="{:url('editgoods',array('id'=>$g['goods_id']) )}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i>
+                                <trans oldtip=" Edit" style="">编辑</trans>
+                            </a>
+                            <a href="#" class="btn btn-danger btn-xs delete" data-del="{$g.goods_id}"><i
+                                    class="fa fa-trash-o"></i>
+                                <trans oldtip=" Delete">删除</trans>
+                            </a>
+
+                        </td>
+                        </tr>
+                        {/volist}
+                        </tbody>
+                        </table>
+                        </form>
+                        </br>
+                        {$gyes->render()}
+
+                        </trans>
+                        </p>
+                    </div>
+
+                    <!--end手风琴1--------------------------------->
+
+                    <!----手风琴2-->
+                    <div class="tab-pane" id="SimpleTab-2">
+                        <p>
+                            <trans oldtip="Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.">
+                                <!--表单-->
+                                <form action="batchRemoveGoods" method="post">
+                                    <button class="btn shiny btn-danger " type="submit">批量删除</button>
+                                    <table class="table table-striped table-bordered table-hover dataTable no-footer"
+                                           aria-describedby="simpledatatable_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th style="width: 4%;" class="sorting_disabled" rowspan="1">
+                                                <div class="checker">
+                                                    <label>
+                                                        <input type="checkbox" class="checkbox-parent" dataid="id-1-">
+                                                        <span class="text"></span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" width="30%">
+                                                商品名称
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1">
+                                                价格(元)
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1">
+                                                总库存
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1">
+                                                销量
+                                            </th>
+                                            <th class="sorting_disabled" rowspan="1" width="10%">
+                                                操作
+                                            </th>
+
+                                        </thead>
+                                        <tbody>
+                                        {volist name='gno' id='g'}
+
+                                        <tr class="odd">
+                                            <td class="">
+                                                <div class="checker">
+                                                    <label>
+                                                        <input type="checkbox" class="checkbox-child"
+                                                               name="del{$g.goods_id}" value="{$g.goods_id}"
+                                                               dataid="id-1-{$g.goods_id}">
+                                                        <span class="text"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                        <p>创建时间：{$g.create_time}</p>
+                        <div>
+                            <img src="{$g.img_url}" height="50" width="50" style="float: left;"/>
+                            <p style="margin-left:10px"> {$g.goods_cnname} </p>
+                            <span class="label label-danger"><trans oldtip="Danger">热卖</trans></span>
+                            <span class="label label-danger"><trans oldtip="Danger">新品</trans></span>
+                            <span class="label label-danger"><trans oldtip="Danger">打折</trans></span>
+                        </div>
+
+                        </td>
+                        <td class="text-center">
+                            <span style="color: #ff0000;">{$g.goods_price}</span>
+                        </td>
+                        <td class="text-center">
+                            {$g.goods_repertory}
+                        </td>
+                        <td class="text-center">
+                            {$g.goods_sales_volume}
+                        </td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-info btn-xs edit" data-status="{$g.goods_id}"><i
+                                    class="fa fa-edit"></i>
+                                <trans oldtip=" Edit" style="">{if condition="($g['goods_status']==1)"} 下架 {else /} 上架
+                                    {/if}
+                                </trans>
+                            </a>
+                            <a href="{:url('editgoods',array('id'=>$g['goods_id']) )}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i>
+                                <trans oldtip=" Edit" style="">编辑</trans>
+                            </a>
+                            <a href="#" class="btn btn-danger btn-xs delete" data-del="{$g.goods_id}"><i
+                                    class="fa fa-trash-o"></i>
+                                <trans oldtip=" Delete">删除</trans>
+                            </a>
+
+                        </td>
+                        </tr>
+                        {/volist}
+                        <!--//ajax-->
+
+
+                        </tbody>
+                        </table>
+                        </form>
+                        <script>
+                            $(function () {
+                                var obj = new Object();
+                                $('[data-del]').click(function () {
+                                    t = $(this).attr('data-del');
+                                    d = $('[data-del=' + t + ']');
+                                    console.log(d);
+
+                                    obj.data = {id: t};
+                                    obj.url = 'delgoods';
+
+                                    $.ajax({
+                                        type: 'get',
+                                        url: obj.url,
+                                        datatype: 'json',
+                                        data: obj.data,
+                                        success: function (r) {
+                                            console.log(r);
+                                            if (r.code === 200) {
+                                                //删除本身
+                                                d.parent().parent().remove();
+                                            } else {
+                                                alert('删除失败');
+                                            }
+                                        }
+                                    })
+                                });
+                                $('[data-status]').click(function () {
+                                    t = $(this).attr('data-status');
+                                    d = $('[data-status=' + t + ']');
+                                    console.log(d);
+
+                                    obj.data = {id: t};
+                                    obj.url = 'goodsUpAndDown';
+
+                                    $.ajax({
+                                        type: 'get',
+                                        url: obj.url,
+                                        datatype: 'json',
+                                        data: obj.data,
+                                        success: function (r) {
+                                            console.log(r);
+                                            if (r.code === 200) {
+                                                //删除本身
+                                                d.parent().parent().remove();
+                                            } else {
+                                                alert('更新失败');
+                                            }
+                                        }
+                                    })
+                                });
+                            })
+                        </script>
+                        </br>
+                        {$gno->render()}
+
+                        <!--end--手风琴2-->
+                        </trans>
+                        </p>
+                    </div>
+                    <div class="tab-pane" id="SimpleTab-3">
+                        <p>
+                            <trans oldtip="Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade."
+                                   style="">
+                                没有
+                            </trans>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--end==============================================================================================================================-->
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+{include file='photo/clow'}
+
+<script type="text/javascript">
+    /* 权限配置 */
+    $(function () {
+        //动态选择框，上下级选中状态变化
+        $('input.checkbox-parent').on('change', function () {
+            var dataid = $(this).attr("dataid");
+            $('input[dataid^=' + dataid + ']').prop('checked', $(this).is(':checked'));
+        });
+        $('input.checkbox-child').on('change', function () {
+            var dataid = $(this).attr("dataid");
+            dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+            var parent = $('input[dataid=' + dataid + ']');
+            if ($(this).is(':checked')) {
+                parent.prop('checked', true);
+                //循环到顶级
+                while (dataid.lastIndexOf("-") != 2) {
+                    dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                    parent = $('input[dataid=' + dataid + ']');
+                    parent.prop('checked', true);
+                }
+            } else {
+                //父级
+                if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                    parent.prop('checked', false);
+                    //循环到顶级
+                    while (dataid.lastIndexOf("-") != 2) {
+                        dataid = dataid.substring(0, dataid.lastIndexOf("-"));
+                        parent = $('input[dataid=' + dataid + ']');
+                        if ($('input[dataid^=' + dataid + '-]:checked').length == 0) {
+                            parent.prop('checked', false);
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+<!--  /Body -->
+
+</html>

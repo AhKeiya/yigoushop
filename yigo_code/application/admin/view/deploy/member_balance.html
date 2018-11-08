@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 1.3
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Head -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:42 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8"/>
+    <title>会员管理</title>
+
+    <meta name="description" content="Form Data Pickers"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="shortcut icon" href="/static/assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="/static/css/bootstrap483f.css?v=CuH9RlQV46Coteojf9QViKkxtVTYhGCqM_FnAICT2Q01" rel="stylesheet"/>
+
+    <link id="bootstrap-rtl-link" href="#" rel="stylesheet"/>
+
+
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link href="/static/css/beyondb0c4.css?v=HG5KqCPVygOgntL8rUT6gSZJeFQKNzDTyenG4hDN0Gc1" rel="stylesheet"/>
+
+    <link id="skin-link" href="#" rel="stylesheet" type="text/css"/>
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="/static/bundles/skin1da7?v=wnApff0StMBrwaH1cwHy5AOi7bqNwLDNYXhdxWGe1sg1"></script>
+
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        <!-- /Page Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="#">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="#">
+                            网站设置
+                        </a>
+                    </li>
+                    <li>会员管理</li>
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        网站设置
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            会员管理
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <div style="margin-top: 1%" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!--调整余额-->
+                        <form action="" method="post">
+                            <!--隐藏域传递ID-->
+                            <input type="hidden"  value="{$balance.member_id}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                                onclick="javascript:window.location.href = '/admin/deploy/member'">
+                                            &times;
+                                        </button>
+                                        <h4 class="modal-title" id="">调整余额</h4>
+                                    </div>
+                                    <div class="well with-header">
+                                        <div class="header bordered-darkpink">余额调整</div>
+                                        <div class="">
+                                            <label for="">当前余额：</label>
+                                            <span>
+                                                {if condition="$balance['member_balance'] eq '' "/}
+                                                0
+                                                {else/}
+                                                 {$balance.member_balance}
+                                                {/if}
+                                            </span>元
+                                        </div>
+
+                                        <hr class="wide">
+
+                                        <div class="">
+                                            <label for="">调整余额：</label>
+                                            <input type="number" name="member_balance"> 元
+                                            <p style="color: #5b5958 ;margin-left:70px">
+                                                输入负数表示为减少</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                onclick="javascript:window.location.href = '/admin/deploy/member'">返回
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            提交更改
+                                        </button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal -->
+                        </form>
+
+                        <div class="footer">
+                            <code>&lt; th class="hidden-xs" &gt;</code>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+<!--会员添加模态框-->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    会员添加
+                </h4>
+            </div>
+            <form action="/admin/deploy/member_add" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">会员名称：</label>
+                        <input class="form-control input-xs" name="member_name" type="text" value="">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">账户余额：</label>
+                        <input class="form-control input-xs" name="member_balance" type="text" value="">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">状态：</label>
+                        <div class="control-group">
+                            <div class="radio"><label><input checked="checked" name="member_status" value="1"
+                                                             type="radio"><span class="text"><trans oldtip="Basic"
+                                                                                                    newtip="基本"
+                                                                                                    style="">正常</trans></span></label>
+                            </div>
+                            <div class="radio"><label><input class="inverted" name="member_status" value="0"
+                                                             type="radio"><span class="text"><trans oldtip="Inverted"
+                                                                                                    newtip="倒置"
+                                                                                                    style="">锁定</trans></span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        提交
+                    </button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!--测试AJAX-->
+<script>
+    function showCustomer(str) {
+        var xmlhttp;
+        if (str == "") {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        if (window.XMLHttpRequest) {
+            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "/try/ajax/getcustomer.php?q=" + str, true);
+        xmlhttp.send();
+    }
+</script>
+
+<!--Basic Scripts-->
+<script src="/static/bundles/jquery8660?v=OCFAn1NcaUrZ5VLi0Kt8lefDjHOF7mvtdw-2FUpZjJ01"></script>
+
+<script src="/static/bundles/bootstrapb39f?v=lnv04LybUYw6yivF1vddIyei4SxfYRrlfuBp1ML6vk01"></script>
+
+
+<!--Beyond Scripts-->
+<script src="/static/bundles/beyond2170?v=7yHpAaDmMiC32hwiTNZmLsxzgkFHpn9AwtA7zZfapEE1"></script>
+
+
+<!--Page Related Scripts-->
+
+<!--Jquery Select2-->
+<script src="/static/assets/js/select2/select2.js"></script>
+<!--Bootstrap Tags Input-->
+<script src="/static/assets/js/tagsinput/bootstrap-tagsinput.js"></script>
+
+<!--Bootstrap Date Picker-->
+<script src="/static/assets/js/datetime/bootstrap-datepicker.js"></script>
+
+<!--Bootstrap Time Picker-->
+<script src="/static/assets/js/datetime/bootstrap-timepicker.js"></script>
+
+<!--Bootstrap Date Range Picker-->
+<script src="/static/assets/js/datetime/moment.js"></script>
+<script src="/static/assets/js/datetime/daterangepicker.js"></script>
+
+<!--Jquery Autosize-->
+<script src="/static/assets/js/textarea/jquery.autosize.js"></script>
+
+<!--Fuelux Spinbox-->
+<script src="/static/assets/js/fuelux/spinbox/fuelux.spinbox.min.js"></script>
+
+<!--jQUery MiniColors-->
+<script src="/static/assets/js/colorpicker/jquery.minicolors.js"></script>
+
+<!--jQUery Knob-->
+<script src="/static/assets/js/knob/jquery.knob.js"></script>
+
+<!--noUiSlider-->
+<script src="/static/assets/js/slider/jquery.nouislider.js"></script>
+
+<!--jQRangeSlider-->
+<script src="/static/assets/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/static/assets/js/slider/jQRangeSlider/jQAllRangeSliders-withRuler-min.js"></script>
+
+
+<script>
+    //--Jquery Select2--
+    $("#e1").select2();
+    $("#e2").select2({
+        placeholder: "Select a State",
+        allowClear: true
+    });
+
+    //--Bootstrap Date Picker--
+    $('.date-picker').datepicker();
+
+    //--Bootstrap Time Picker--
+    $('#timepicker1').timepicker();
+
+    //--Bootstrap Date Range Picker--
+    $('#reservation').daterangepicker();
+
+    //--JQuery Autosize--
+    $('#textareaanimated').autosize({append: "\n"});
+
+    //--Fuelux Spinbox--
+    $('.spinbox').spinbox();
+
+
+    //--jQuery MiniColors--
+    $('.colorpicker').each(function () {
+        $(this).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            defaultValue: $(this).attr('data-defaultValue') || '',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: $(this).attr('data-letterCase') || 'lowercase',
+            opacity: $(this).attr('data-opacity'),
+            position: $(this).attr('data-position') || 'bottom left',
+            change: function (hex, opacity) {
+                if (!hex) return;
+                if (opacity) hex += ', ' + opacity;
+                try {
+                    console.log(hex);
+                } catch (e) {
+                }
+            },
+            theme: 'bootstrap'
+        });
+
+    });
+
+
+    //---Jquery Knob--
+    $(".knob").knob();
+
+
+    //---noUiSlider--
+    $("#sample-minimal").noUiSlider({
+        range: [0, 100],
+        start: [20, 80],
+        connect: true,
+        serialization: {
+            mark: ',',
+            resolution: 0.1,
+            to: [[$("#minimal-label1"), 'html'],
+                [$('#minimal-label2'), 'html']]
+        }
+    });
+
+    $("#sample-onehandle").noUiSlider({
+        range: [20, 100],
+        start: 40,
+        step: 20,
+        handles: 1,
+        connect: "lower",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+    $("#sample-onehandle-upper").noUiSlider({
+        range: [20, 100],
+        start: 70,
+        step: 20,
+        handles: 1,
+        connect: "upper",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+    $('.slider').noUiSlider({
+        range: [0, 255],
+        start: 127,
+        handles: 1,
+        connect: "lower",
+        orientation: "vertical",
+        serialization: {
+            resolution: 1
+        }
+        , slide: function () {
+
+            var color = 'rgb(' + $("#red").val()
+                + ',' + $("#green").val()
+                + ',' + $("#blue").val()
+                + ')';
+
+            $(".result").css({
+                background: color
+                , color: color
+            });
+        }
+    });
+
+    $(".sized-slider").noUiSlider({
+        range: [0, 100],
+        start: 50,
+        handles: 1,
+        connect: "lower",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+
+    $(".colored-slider").noUiSlider({
+        range: [0, 100],
+        start: 30,
+        handles: 1,
+        connect: "lower",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+
+    //--jQRangeSlider--
+    $(".sized-rangeslider").rangeSlider();
+    $(".colored-rangeslider").rangeSlider();
+    $("#rangeslider").rangeSlider();
+    $("#editrangeslider").editRangeSlider();
+    $("#daterangeslider").dateRangeSlider();
+    $("#noarrowsrangeslider").rangeSlider({arrows: false});
+    $("#boundsrangeslider").rangeSlider({bounds: {min: 10, max: 90}});
+    $("#dvrangeslider").rangeSlider({defaultValues: {min: 13, max: 66}});
+    $("#delayrangeslider").rangeSlider({valueLabels: "change", delayOut: 4000});
+    $("#durationrangeslider").rangeSlider({valueLabels: "change", durationIn: 1000, durationOut: 1000});
+    $("#disabledrangeslider").rangeSlider({enabled: false});
+    $("#steprangeslider").rangeSlider({step: 10});
+    $("#labelsrangeslider").rangeSlider({valueLabels: "hide"});
+    $("#simlescalesrangeslider").rangeSlider({
+        scales: [
+            // Primary scale
+            {
+                first: function (val) {
+                    return val;
+                },
+                next: function (val) {
+                    return val + 10;
+                },
+                stop: function (val) {
+                    return false;
+                },
+                label: function (val) {
+                    return val;
+                },
+                format: function (tickContainer, tickStart, tickEnd) {
+                    tickContainer.addClass("myCustomClass");
+                }
+            },
+            // Secondary scale
+            {
+                first: function (val) {
+                    return val;
+                },
+                next: function (val) {
+                    if (val % 10 === 9) {
+                        return val + 2;
+                    }
+                    return val + 1;
+                },
+                stop: function (val) {
+                    return false;
+                },
+                label: function () {
+                    return null;
+                }
+            }]
+    });
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    $("#dateRulersExample").dateRangeSlider({
+        bounds: {min: new Date(2012, 0, 1), max: new Date(2012, 11, 31, 12, 59, 59)},
+        defaultValues: {min: new Date(2012, 1, 10), max: new Date(2012, 4, 22)},
+        scales: [{
+            first: function (value) {
+                return value;
+            },
+            end: function (value) {
+                return value;
+            },
+            next: function (value) {
+                var next = new Date(value);
+                return new Date(next.setMonth(value.getMonth() + 1));
+            },
+            label: function (value) {
+                return months[value.getMonth()];
+            },
+            format: function (tickContainer, tickStart, tickEnd) {
+                tickContainer.addClass("myCustomClass");
+            }
+        }]
+    });
+</script>
+
+</body>
+<!--  /Body -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:49 GMT -->
+</html>

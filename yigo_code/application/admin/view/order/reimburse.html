@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 1.3
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Head -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Form Data Pickers</title>
+
+    <meta name="description" content="Form Data Pickers" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/static/assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="/static/css/bootstrap483f.css?v=CuH9RlQV46Coteojf9QViKkxtVTYhGCqM_FnAICT2Q01" rel="stylesheet"/>
+
+    <link id="bootstrap-rtl-link" href="#" rel="stylesheet" />
+
+
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link href="/static/css/beyondb0c4.css?v=HG5KqCPVygOgntL8rUT6gSZJeFQKNzDTyenG4hDN0Gc1" rel="stylesheet"/>
+
+    <link id="skin-link" href="#" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="/static/bundles/skin1da7?v=wnApff0StMBrwaH1cwHy5AOi7bqNwLDNYXhdxWGe1sg1"></script>
+
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        <!-- /Page Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="#">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="/static/index.html">
+                            订单管理
+                        </a>
+                    </li>
+                    <li>订单预览</li>
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        订单管理
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            订单预览
+                            <i class="fa fa-angle-right"></i>
+                            正在退款中订单
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <div style="margin-top: 1%" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well with-header with-footer">
+                            <div class="header bordered-pink">
+                                <a style="margin-left: 4%" href="">全部订单</a>
+                                <a style="margin-left: 4%" href="obligation">待付款</a>
+                                <a style="margin-left: 4%" href="dropshipping">代发货</a>
+                                <a style="margin-left: 4%" href="dropalready">已发货</a>
+                                <a style="margin-left: 4%" href="acquire">已收货</a>
+                                <a style="margin-left: 4%" href="reimburse">退款中</a>
+                            </div>
+                            <table  class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <button style="display:inline-block" class="btn btn-azure " type="button">导出全部输出</button>
+                                <button style="display:inline-block" class="btn" type="button">打印全部订单</button>
+                                <div style="float: right;width: 40%" class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                    <input type="text" class="form-control" id="reservation">
+                                </div>
+
+                                <tr>
+                                    <th style="width: 5%">
+                                        <i class=""></i> <div class="checker">
+
+                                        <label>
+                                            <input type="checkbox" class="group-checkable" data-set="#flip .checkboxes">
+                                            <span class="text"></span>
+                                        </label>
+                                    </div>
+                                    </th>
+                                    <th class="hidden-xs">
+                                        <i class=""></i> 商品信息
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 商品清单
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 订单金额
+                                    </th>
+                                    <th style="width: 10%">
+                                        <i class=""></i> 收货信息
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 买家
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 交易状态
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 物流公司
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 操作
+                                    </th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="checker">
+                                            <label>
+                                                <input type="checkbox" class="checkboxes" value="1">
+                                                <span class="text"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="hidden-xs">
+                                        范冰冰超真人
+                                    </td>
+                                    <td>
+                                        100件 100元
+                                    </td>
+                                    <td>
+                                        9999元
+                                    </td>
+                                    <td>
+                                        广东省东莞市常平镇臭水沟小王子666666666
+                                    </td>
+                                    <td>
+                                        zhoubairao
+                                    </td>
+                                    <td>
+                                        已发货
+                                    </td>
+                                    <td>
+                                        顺丰快递
+                                    </td>
+
+                                    <td>
+                                        <a href="#" class="btn btn-default btn-xs purple"><i class="fa fa-edit"></i>修改订单</a>
+                                        <a href="#" class="btn btn-default btn-xs black"><i class="fa fa-trash-o"></i>删除订单</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="footer">
+                                <code>&lt; th class="hidden-xs" &gt;</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+<!--Basic Scripts-->
+<script src="/static/bundles/jquery8660?v=OCFAn1NcaUrZ5VLi0Kt8lefDjHOF7mvtdw-2FUpZjJ01"></script>
+
+<script src="/static/bundles/bootstrapb39f?v=lnv04LybUYw6yivF1vddIyei4SxfYRrlfuBp1ML6vk01"></script>
+
+
+<!--Beyond Scripts-->
+<script src="/static/bundles/beyond2170?v=7yHpAaDmMiC32hwiTNZmLsxzgkFHpn9AwtA7zZfapEE1"></script>
+
+
+<!--Page Related Scripts-->
+
+<!--Jquery Select2-->
+<script src="/static/assets/js/select2/select2.js"></script>
+<!--Bootstrap Tags Input-->
+<script src="/static/assets/js/tagsinput/bootstrap-tagsinput.js"></script>
+
+<!--Bootstrap Date Picker-->
+<script src="/static/assets/js/datetime/bootstrap-datepicker.js"></script>
+
+<!--Bootstrap Time Picker-->
+<script src="/static/assets/js/datetime/bootstrap-timepicker.js"></script>
+
+<!--Bootstrap Date Range Picker-->
+<script src="/static/assets/js/datetime/moment.js"></script>
+<script src="/static/assets/js/datetime/daterangepicker.js"></script>
+
+<!--Jquery Autosize-->
+<script src="/static/assets/js/textarea/jquery.autosize.js"></script>
+
+<!--Fuelux Spinbox-->
+<script src="/static/assets/js/fuelux/spinbox/fuelux.spinbox.min.js"></script>
+
+<!--jQUery MiniColors-->
+<script src="/static/assets/js/colorpicker/jquery.minicolors.js"></script>
+
+<!--jQUery Knob-->
+<script src="/static/assets/js/knob/jquery.knob.js"></script>
+
+<!--noUiSlider-->
+<script src="/static/assets/js/slider/jquery.nouislider.js"></script>
+
+<!--jQRangeSlider-->
+<script src="/static/assets/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/static/assets/js/slider/jQRangeSlider/jQAllRangeSliders-withRuler-min.js"></script>
+
+
+<script>
+    //--Jquery Select2--
+    $("#e1").select2();
+    $("#e2").select2({
+        placeholder: "Select a State",
+        allowClear: true
+    });
+
+    //--Bootstrap Date Picker--
+    $('.date-picker').datepicker();
+
+    //--Bootstrap Time Picker--
+    $('#timepicker1').timepicker();
+
+    //--Bootstrap Date Range Picker--
+    $('#reservation').daterangepicker();
+
+    //--JQuery Autosize--
+    $('#textareaanimated').autosize({ append: "\n" });
+
+    //--Fuelux Spinbox--
+    $('.spinbox').spinbox();
+
+
+    //--jQuery MiniColors--
+    $('.colorpicker').each(function () {
+        $(this).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            defaultValue: $(this).attr('data-defaultValue') || '',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: $(this).attr('data-letterCase') || 'lowercase',
+            opacity: $(this).attr('data-opacity'),
+            position: $(this).attr('data-position') || 'bottom left',
+            change: function (hex, opacity) {
+                if (!hex) return;
+                if (opacity) hex += ', ' + opacity;
+                try {
+                    console.log(hex);
+                } catch (e) { }
+            },
+            theme: 'bootstrap'
+        });
+
+    });
+
+
+    //---Jquery Knob--
+    $(".knob").knob();
+
+
+    //---noUiSlider--
+    $("#sample-minimal").noUiSlider({
+        range: [0, 100],
+        start: [20, 80],
+        connect: true,
+        serialization: {
+            mark: ',',
+            resolution: 0.1,
+            to: [[$("#minimal-label1"), 'html'],
+                [$('#minimal-label2'), 'html']]
+        }
+    });
+
+    $("#sample-onehandle").noUiSlider({
+        range: [20, 100],
+        start: 40,
+        step: 20,
+        handles: 1,
+        connect: "lower",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+    $("#sample-onehandle-upper").noUiSlider({
+        range: [20, 100],
+        start: 70,
+        step: 20,
+        handles: 1,
+        connect: "upper",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+    $('.slider').noUiSlider({
+        range: [0, 255],
+        start: 127,
+        handles: 1,
+        connect: "lower",
+        orientation: "vertical",
+        serialization: {
+            resolution: 1
+        }
+        , slide: function () {
+
+            var color = 'rgb(' + $("#red").val()
+                + ',' + $("#green").val()
+                + ',' + $("#blue").val()
+                + ')';
+
+            $(".result").css({
+                background: color
+                , color: color
+            });
+        }
+    });
+
+    $(".sized-slider").noUiSlider({
+        range: [0, 100],
+        start: 50,
+        handles: 1,
+        connect: "lower",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+
+    $(".colored-slider").noUiSlider({
+        range: [0, 100],
+        start: 30,
+        handles: 1,
+        connect: "lower",
+        serialization: {
+            to: [$("#low"), 'html']
+        }
+    });
+
+    //--jQRangeSlider--
+    $(".sized-rangeslider").rangeSlider();
+    $(".colored-rangeslider").rangeSlider();
+    $("#rangeslider").rangeSlider();
+    $("#editrangeslider").editRangeSlider();
+    $("#daterangeslider").dateRangeSlider();
+    $("#noarrowsrangeslider").rangeSlider({ arrows: false });
+    $("#boundsrangeslider").rangeSlider({ bounds: { min: 10, max: 90 } });
+    $("#dvrangeslider").rangeSlider({ defaultValues: { min: 13, max: 66 } });
+    $("#delayrangeslider").rangeSlider({ valueLabels: "change", delayOut: 4000 });
+    $("#durationrangeslider").rangeSlider({ valueLabels: "change", durationIn: 1000, durationOut: 1000 });
+    $("#disabledrangeslider").rangeSlider({ enabled: false });
+    $("#steprangeslider").rangeSlider({ step: 10 });
+    $("#labelsrangeslider").rangeSlider({ valueLabels: "hide" });
+    $("#simlescalesrangeslider").rangeSlider({
+        scales: [
+            // Primary scale
+            {
+                first: function (val) { return val; },
+                next: function (val) { return val + 10; },
+                stop: function (val) { return false; },
+                label: function (val) { return val; },
+                format: function (tickContainer, tickStart, tickEnd) {
+                    tickContainer.addClass("myCustomClass");
+                }
+            },
+            // Secondary scale
+            {
+                first: function (val) { return val; },
+                next: function (val) {
+                    if (val % 10 === 9) {
+                        return val + 2;
+                    }
+                    return val + 1;
+                },
+                stop: function (val) { return false; },
+                label: function () { return null; }
+            }]
+    });
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    $("#dateRulersExample").dateRangeSlider({
+        bounds: { min: new Date(2012, 0, 1), max: new Date(2012, 11, 31, 12, 59, 59) },
+        defaultValues: { min: new Date(2012, 1, 10), max: new Date(2012, 4, 22) },
+        scales: [{
+            first: function (value) { return value; },
+            end: function (value) { return value; },
+            next: function (value) {
+                var next = new Date(value);
+                return new Date(next.setMonth(value.getMonth() + 1));
+            },
+            label: function (value) {
+                return months[value.getMonth()];
+            },
+            format: function (tickContainer, tickStart, tickEnd) {
+                tickContainer.addClass("myCustomClass");
+            }
+        }]
+    });
+</script>
+
+</body>
+<!--  /Body -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:49 GMT -->
+</html>

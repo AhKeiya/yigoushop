@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 1.3
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Head -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <title>Form Data Pickers</title>
+
+    <meta name="description" content="Form Data Pickers" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/static/assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="/static/css/bootstrap483f.css?v=CuH9RlQV46Coteojf9QViKkxtVTYhGCqM_FnAICT2Q01" rel="stylesheet"/>
+
+    <link id="bootstrap-rtl-link" href="#" rel="stylesheet" />
+
+
+    <!--Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link href="/static/css/beyondb0c4.css?v=HG5KqCPVygOgntL8rUT6gSZJeFQKNzDTyenG4hDN0Gc1" rel="stylesheet"/>
+
+    <link id="skin-link" href="#" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="/static/bundles/skin1da7?v=wnApff0StMBrwaH1cwHy5AOi7bqNwLDNYXhdxWGe1sg1"></script>
+
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        <!-- /Page Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="/admin/index/index">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="#">
+                            优惠券
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        主页
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            营销
+                            <i class="fa fa-angle-right"></i>
+                            优惠券
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <div style="margin-top: 1%" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well with-header with-footer">
+                            <div class="header bordered-pink">
+                                <a style="margin-left: 4%" href="marketing">邮件群发</a>
+                                <a style="margin-left: 4%" href="#">设置优惠券</a>
+                                <a style="margin-left: 4%" href="off_price.html">限时折扣</a>
+                                <a style="margin-left: 4%" href="mail_template.html">邮件模板配置</a>
+                                <a style="margin-left: 4%" href="#">待开发</a>
+                                <a style="margin-left: 4%" href="#">待开发</a>
+                            </div>
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <a href="add_preferential" class="btn btn-azure ">添加优惠券</a>
+                                <a style="margin-left: 1%" href="coupon_overdue" class="btn btn-azure ">查询已过期</a>
+                                <tr>
+                                    <th class="hidden-xs">
+                                        <i class=""></i> 优惠券名称
+                                    </th>
+                                    <th class="hidden-xs">
+                                        <i class=""></i> 优惠卷价值
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 优惠卷编号
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 使用规则
+                                    </th>
+                                    <th style="text-align: center">
+                                        <i class=""></i> 是否已近使用
+                                    </th>
+                                    <th  style="width: 40%">
+                                        <i class=""></i> 优惠券有效期
+                                    </th>
+                                    <th>
+                                        <i class=""></i> 操作
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {foreach $data as $i}
+                                <tr>
+                                    <td class="hidden-xs">
+                                        {$i.cou_name}
+                                    </td>
+                                    <td class="hidden-xs">
+                                        {$i.cou_price}
+                                    </td>
+                                    <td>
+                                        {$i.cou_num}
+                                    </td>
+                                    <td>
+                                        {$i.cou_rule}
+                                    </td>
+                                    <td style="text-align: center">
+                                        {if condition="$i['cou_use'] == 0"}<span class="label label-success">未使用</span>{else}<span class="label label-default">已使用</span>{/if}
+                                    </td>
+                                    <td>
+                                        <div>领取时间：{$i.cou_Ctime}</div>
+                                        <div>结束时间：{$i.cou_Dtime}</div>
+                                    </td>
+
+
+                                    <td>
+                                        <a href="del_coupon?id={$i.cou_id}" class="btn btn-default btn-xs black"><i class="fa fa-trash-o"></i>删除优惠券</a>
+                                    </td>
+                                </tr>
+                                {/foreach}
+                                </tbody>
+                            </table>
+                            {$data->render()}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+<!--Basic Scripts-->
+<script src="/static/bundles/jquery8660?v=OCFAn1NcaUrZ5VLi0Kt8lefDjHOF7mvtdw-2FUpZjJ01"></script>
+
+<script src="/static/bundles/bootstrapb39f?v=lnv04LybUYw6yivF1vddIyei4SxfYRrlfuBp1ML6vk01"></script>
+
+
+<!--Beyond Scripts-->
+<script src="/static/bundles/beyond2170?v=7yHpAaDmMiC32hwiTNZmLsxzgkFHpn9AwtA7zZfapEE1"></script>
+
+
+<!--Page Related Scripts-->
+
+<!--Jquery Select2-->
+<script src="/static/assets/js/select2/select2.js"></script>
+<!--Bootstrap Tags Input-->
+<script src="/static/assets/js/tagsinput/bootstrap-tagsinput.js"></script>
+
+<!--Bootstrap Date Picker-->
+<script src="/static/assets/js/datetime/bootstrap-datepicker.js"></script>
+
+<!--Bootstrap Time Picker-->
+<script src="/static/assets/js/datetime/bootstrap-timepicker.js"></script>
+
+<!--Bootstrap Date Range Picker-->
+<script src="/static/assets/js/datetime/moment.js"></script>
+<script src="/static/assets/js/datetime/daterangepicker.js"></script>
+
+<!--Jquery Autosize-->
+<script src="/static/assets/js/textarea/jquery.autosize.js"></script>
+
+<!--Fuelux Spinbox-->
+<script src="/static/assets/js/fuelux/spinbox/fuelux.spinbox.min.js"></script>
+
+<!--jQUery MiniColors-->
+<script src="/static/assets/js/colorpicker/jquery.minicolors.js"></script>
+
+<!--jQUery Knob-->
+<script src="/static/assets/js/knob/jquery.knob.js"></script>
+
+<!--noUiSlider-->
+<script src="/static/assets/js/slider/jquery.nouislider.js"></script>
+
+<!--jQRangeSlider-->
+<script src="/static/assets/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/static/assets/js/slider/jQRangeSlider/jQAllRangeSliders-withRuler-min.js"></script>
+
+
+
+
+</body>
+<!--  /Body -->
+
+<!-- Mirrored from www.yidt.cn/Home/DataPickers by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Jul 2018 02:14:49 GMT -->
+</html>

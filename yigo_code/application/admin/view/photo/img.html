@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>Form Data Pickers</title>
+
+    <link rel="stylesheet" href="/static/c/upload/css/upload.css">
+    <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
+
+    {include file='photo/chead'}
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        {include file='photo/c_chatbar'}
+
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="/admin/index/index">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="lst">
+                            相册
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        图片
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+<!--==============================================================================================================================-->
+
+
+
+            <a id="zwb_upload" style="height: 30px">
+                <input type="file" class="add" multiple>点击上传图片
+            </a>
+            <input type="text" name="filePath" id="callbackPath2">
+            <script src="/static/c/upload/js/upload.min.js"></script>
+            <script>
+                //配置需要引入jq 1.7.2版本以上
+                //服务器端成功返回 {state:1,path:文件保存路径}
+                //服务器端失败返回 {state:0,errmsg:错误原因}
+                //默认做了文件名不能含有中文,后端接收文件的变量名为file
+                $("#zwb_upload").bindUpload({
+                    url:"/home/index/upload",//上传服务器地址
+                    callbackPath:"#callbackPath2",//绑定上传成功后 图片地址的保存容器的id或者class 必须为input或者textarea等可以使用$(..).val()设置之的表单元素
+                    // ps:值返回上传成功的 默认id为#callbackPath  保存容器为位置不限制,id需要加上#号,class需要加上.
+                    // 返回格式为:
+                    // 原来的文件名,服务端保存的路径|原来的文件名,服务端保存的路径|原来的文件名,服务端保存的路径|原来的文件名,服务端保存的路径....
+                    num:10,//上传数量的限制 默认为空 无限制
+                    type:"jpg|png|gif|svg",//上传文件类型 默认为空 无限制
+                    size:3,//上传文件大小的限制,默认为5单位默认为mb
+                });
+            </script>
+
+    </br></br>
+            <!--<button class="btn shiny btn-primary " type="button" style="margin-left:30px"><trans oldtip="Primary"  >全选</trans></button>-->
+            <!--<button class="btn shiny btn-primary " type="button"><trans oldtip="Primary" newtip="" style="">取消</trans></button>-->
+            <!--<button class="btn shiny btn-primary " type="button"><trans oldtip="Primary" newtip="" style="">反选</trans></button>-->
+            <!--<button class="btn shiny btn-primary " type="button"><trans oldtip="Primary" newtip="" style="">删除</trans></button>-->
+            <!--<button class="btn shiny btn-primary " type="button"><trans oldtip="Primary"  style="">转移相册</trans></button>-->
+
+            <div class="bs-example" data-example-id="simple-thumbnails">
+                <div class="row">
+
+                    <div class="col-xs-6 col-md-3">
+                        <div  class="thumbnail">
+                            <img src="/static/img/日晷.jpg" height="400" width="400"/>
+                            <p style="color:#0000ff">名称</p>
+                            <a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i><trans oldtip=" Delete" newtip="删除">删除</trans></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div  class="thumbnail">
+                            <img src="/static/img/日晷.jpg" height="400" width="400"/>
+                            <p style="color:#0000ff">名称</p>
+
+                            <a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i><trans oldtip=" Delete" newtip="删除">删除</trans></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div  class="thumbnail">
+                            <img src="/static/img/日晷.jpg" height="400" width="400"/>
+                            <p style="color:#0000ff">名称</p>
+
+                            <a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i><trans oldtip=" Delete" newtip="删除">删除</trans></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div  class="thumbnail">
+                            <img src="/static/img/日晷.jpg" height="400" width="400"/>
+                            <p style="color:#0000ff">名称</p>
+                            <a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i><trans oldtip=" Delete" newtip="删除">删除</trans></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div  class="thumbnail">
+                            <img src="/static/img/日晷.jpg" height="400" width="400"/>
+                            <p style="color:#0000ff">名称</p>
+                            <a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i><trans oldtip=" Delete" newtip="删除">删除</trans></a>
+                        </div>
+                    </div>
+
+                </div>
+                <ul  class="pagination"><li class="prev disabled"><a href="#"><trans oldtip="Prev" newtip="普雷夫" style="">上一页</trans></a></li><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">5</a></li><li class="next"><a href="#"><trans oldtip="Next" newtip="下一个">下一个</trans></a></li></ul>
+            </div>
+
+
+ <!--end==============================================================================================================================-->
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+{include file='photo/clow'}
+
+</body>
+<!--  /Body -->
+
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/><!-- /Added by HTTrack -->
+<head>
+    <title>Form Data Pickers</title>
+
+    <link rel="stylesheet" href="/static/c/upload/css/upload.css">
+    <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
+
+    <!--百度编辑器-->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" charset="utf-8" src="/static/c/utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/c/utf8-php/ueditor.all.min.js"></script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="/static/c/utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <style type="text/css">
+        #content {
+            width: 100%;
+        }
+    </style>
+
+
+    {include file='photo/chead'}
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        {include file='photo/c_chatbar'}
+
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="/admin/index/index">
+                            主页
+                        </a>
+                    </li>
+                    <li class="active">
+
+                        <a href="/admin/goods/lst">
+                            商品
+                        </a>
+                    </li>
+                    <li>
+                        编辑商品
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        商品
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            编辑商品
+                        </small>
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+            <!--==============================================================================================================================-->
+
+            <form action="/admin/goods/editgoodsApi" enctype="multipart/form-data" method="post">
+
+                <input hidden name="goods_id" value="{$goods.goods_id}"/>
+
+                <div class="tabbable">
+                    <ul class="nav nav-tabs ">
+                        <li class="tab-danger active"><a data-toggle="tab" href="#SimpleTab-1" aria-expanded="true">
+                            <trans oldtip="Home" style="">基础设置</trans>
+                        </a></li>
+                        <li class="tab-success"><a data-toggle="tab" href="#SimpleTab-2" aria-expanded="false">
+                            <trans oldtip="Profile" style="">商品规格</trans>
+                        </a></li>
+                        <li class="tab-info"><a data-toggle="tab" href="#SimpleTab-3" aria-expanded="false">
+                            <trans oldtip="More" style="">商品类型</trans>
+                        </a></li>
+                        <li class="tab-info"><a data-toggle="tab" href="#SimpleTab-4" aria-expanded="false">
+                            <trans oldtip="More" style="">商品详情</trans>
+                        </a></li>
+
+                    </ul>
+                    <div class="tab-content ">
+                        <!--手风琴1-->
+                        <div class="tab-pane active" id="SimpleTab-1">
+                            <p>
+                                <trans oldtip="Raw denim you probably haven't heard of them jean shorts Austin."
+                                       style="">
+                                    <h1>基本信息</h1>
+
+                                    <div class="input-group has-info" style="margin: 20px;width: 20%">
+                                        <span class="input-group-addon"><span
+                                                style="font-size:large;color:#f00">*</span> 商品中文名</span>
+                                        <input type="text" class="form-control" name="goods_cnname"
+                                               value="{$goods.goods_cnname}">
+                                    </div>
+
+
+                                    <div class="input-group has-info" style="margin: 20px;width: 20%">
+                                        <span class="input-group-addon"><span
+                                                style="font-size:large;color:#f00">*</span>商品编号</span>
+                                        <input type="text" class="form-control" name="goods_number"
+                                               value="{$goods.goods_number}"
+                                               aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group has-info" style="margin: 20px;width: 20%">
+                                        <span class="input-group-addon"><span
+                                                style="font-size:large;color:#f00">*</span> 商品库存</span>
+                                        <input type="text" class="form-control" name="goods_repertory"
+                                               value="{$goods.goods_repertory}"
+                                               aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group has-info" style="margin: 20px;width: 20%">
+                                        <span class="input-group-addon"><span
+                                                style="font-size:large;color:#f00">*</span> 商品价格</span>
+                                        <input type="text" class="form-control" name="goods_price"
+                                               value="{$goods.goods_price}"
+                                               aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group has-info" style="margin: 20px;width: 20%">
+                                        <span class="input-group-addon"><span
+                                                style="font-size:large;color:#f00">*</span> 商品重量</span>
+                                        <input type="text" class="form-control" name="goods_desc_weight"
+                                               value="{$gd.goods_desc_weight}">
+                                    </div>
+                                    <div class="input-group has-info" style="margin: 20px;width: 20%">
+                                        <span class="input-group-addon"><span
+                                                style="font-size:large;color:#f00">*</span> 商品体积</span>
+                                        <input type="text" class="form-control" name="goods_desc_volume"
+                                               value="{$gd.goods_desc_volume}">
+                                    </div>
+
+                                    <span class="graded label label-primary"
+                                          style="margin: 20px;width: 20%;font-size:large"><trans
+                                            oldtip="Primary">商品记价方式</trans></span>
+                                    <label><input checked="checked" name="goods_desc_means" value="1" type="radio"><span
+                                            class="text"><trans
+                                            oldtip="Basic">重量</trans></span></label>
+                                    <label><input {if condition="($gd.goods_desc_means==2)" } checked {/if}
+                                        name="goods_desc_means" value='2' type="radio"><span
+                                                class="text"><trans
+                                                oldtip="Basic">体积</trans></span></label>
+                                    <label><input {if condition="($gd.goods_desc_means==3)" } checked {/if}
+                                        name="goods_desc_means" value="3" type="radio"><span
+                                                class="text"><trans
+                                                oldtip="Basic">计件</trans></span></label>
+                                    <br>
+
+                                    <br/>
+                                    <span class="graded label label-primary"
+                                          style="margin: 20px;width: 20%;font-size:large"><trans
+                                            oldtip="Primary">商品状态</trans></span>
+                                    <label><input checked="checked" name="goods_status" value="1" type="radio"><span
+                                            class="text"><trans
+                                            oldtip="Basic">上架</trans></span></label>
+                                    <label><input {if condition="($goods.goods_status==0)" } checked {/if}
+                                        name="goods_status" value="0" type="radio"><span class="text"><trans
+                                                oldtip="Basic">未上架</trans></span></label>
+                                    <br/>
+                                    <span class="input-group-addon">图片最少要3张,最大2000kb</span>
+                                    <!--图片过大数量-->
+                                    <!--<input type="text" value=0 id="fileOversize" >-->
+                                    <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                                        <span class="input-group-addon">图1</span>
+                                        <img src="{$gimg.0}" class="pic" width="200px">
+                                        <input type="file" class=" goodsimg" name="goodsimg1" style="display:none;">
+                                        <span class="input-group-addon filesize" ></span>
+                                    </div>
+                                    <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                                        <span class="input-group-addon">图2</span>
+                                        <img src="{$gimg.1}" class="pic" width="200px">
+                                        <input type="file" class="form-control goodsimg" name="goodsimg2"
+                                               style="display:none;">
+                                        <span class="input-group-addon filesize" ></span>
+                                    </div>
+                                    <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                                        <span class="input-group-addon">图3</span>
+                                        <img src="{$gimg.2}" class="pic" width="200px">
+                                        <input type="file" class="form-control goodsimg" name="goodsimg3"
+                                               style="display:none;">
+                                        <span class="input-group-addon filesize" ></span>
+                                    </div>
+                                    <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                                        <span class="input-group-addon">图4</span>
+                                        <img src="{$gimg.3}" class="pic" width="200px">
+                                        <input type="file" class="form-control goodsimg" name="goodsimg4"
+                                               style="display:none;">
+                                        <span class="input-group-addon filesize" ></span>
+                                    </div>
+                                    <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                                        <span class="input-group-addon">图5</span>
+                                        <img src="{$gimg.4}" class="pic" width="200px">
+                                        <input type="file" class="form-control goodsimg" name="goodsimg5"
+                                               style="display:none;">
+                                        <span class="input-group-addon filesize" ></span>
+                                    </div>
+                                    <!--显示图片,图片预览jq-->
+                                    <script>
+                                        $(function () {
+                                            $(".pic").click(function () {
+                                                $(this).parent().find(".goodsimg").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+                                                $(this).parent().find(".goodsimg").on("change", function () {
+                                                    var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+                                                    if (objUrl) {
+                                                        $(this).parent().find(".pic").attr("src", objUrl); //将图片路径存入src中，显示出图片
+                                                        var filesize  = $(this).parent().find(".goodsimg")[0].files[0].size;
+                                                        if(filesize/1024 >=2000){
+                                                            $(this).parent().find('.filesize').html('过大不能上传');
+                                                            $(this).parent().find('.filesize').css('color','#f00');
+                                                        }else{
+                                                            $(this).parent().find('.filesize').html(parseInt(filesize/1024)+'kb');
+                                                        }
+                                                    }
+                                                });
+                                            });
+                                        });
+
+                                        function getObjectURL(file) {
+                                            var url = null;
+                                            if (window.createObjectURL != undefined) { // basic
+                                                url = window.createObjectURL(file);
+                                            } else if (window.URL != undefined) { // mozilla(firefox)
+                                                url = window.URL.createObjectURL(file);
+                                            } else if (window.webkitURL != undefined) { // webkit or chrome
+                                                url = window.webkitURL.createObjectURL(file);
+                                            }
+                                            return url;
+                                        }
+                                    </script>
+
+                                </trans>
+                            </p>
+                        </div>
+                        <!--end-手风琴1-->
+                        <!--手风琴2 规格-->
+                        <div class="tab-pane" id="SimpleTab-2">
+                            <p>
+                                <!--手风琴2 规格-->
+                                <trans id="tra2"
+                                       oldtip="Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.">
+                                    <!--规格包含商品规格值 键值-->
+                                    {volist name='gs' id='g' '}
+                                    {if condition="( $g['spec_id'] !=null)"}
+                                    <h2>规格{$g.key}</h2>
+                                    <span class="graded label label-primary"
+                                          style="margin: 20px;width: 10%;font-size:large"><trans
+                                            oldtip="Primary">选择规格类型</trans></span>
+                                    <!--编辑商品的规格id-->
+                                    <input hidden name="spec[id][{$g.key}]" value="{php} echo $goods_spec[$g['key']-1]['id'] {/php}">
+                                    <select name="spec[name][{$g.key}]" data-spec="{$g.key}">
+                                        {volist name='spec' id='s'}
+                                        <option {if condition="($s.spec_id==$goods_spec[$g['key']-1]['spec_id'])"} selected {/if} >{$s.spec_name}</option>
+                                        {/volist}
+                                        <option value="0" >不选</option>
+                                    </select>
+                                    <br/>
+                                    <span class="graded label label-primary"
+                                          style="margin: 20px;width: 10%;font-size:large"><trans
+                                            oldtip="Primary">选择规格值</trans></span>
+                                    <select name="value[name][{$g.key}]" data-value="{$g.key}">
+                                        <!--规格-->
+                                        {volist name='nowSpecValueAll[$g.key]' id='ns'}
+                                        <option {if condition="($ns==$g['spec_value'])"} selected {/if} style>
+                                        {$ns}</option>
+                                        {/volist}
+                                    </select>
+                                    <br/>
+                                    <!--上传图片-->
+
+                                    <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                                        <span class="input-group-addon">图{$g.key}</span>
+                                        <img src="{$g.url}" class="pic" width="200px">
+                                        <input type="file" class=" goodsimg" name="specimg{$g.key}" style="display:none;">
+                                        <span class="input-group-addon filesize" ></span>
+                                    </div>
+                                    {else /}
+                                    <h2>规格{$g.key}</h2>
+                                    <span class="graded label label-primary"
+                                          style="margin: 20px;width: 10%;font-size:large"><trans
+                                            oldtip="Primary">选择规格类型</trans></span>
+                                    <select name="spec[name][{$g.key}]" data-spec="{$g.key}">
+                                        <option value="0">不选</option>
+                                        {volist name='spec' id='s'}
+                                        <option >{$s.spec_name}</option>
+                                        {/volist}
+                                    </select>
+                                    <br/>
+                                    <span class="graded label label-primary"
+                                          style="margin: 20px;width: 10%;font-size:large"><trans
+                                            oldtip="Primary">选择规格值</trans></span>
+                                    <select name="value[name][{$g.key}]" data-value="{$g.key}">
+
+                                    </select>
+                                    <br/>
+                                    <!--上传图片-->
+
+                                    <div class=" input-group has-success" style="width: 30%;margin: 20px;">
+                                        <span class="input-group-addon">图{$g.key}</span>
+                                        <img src="/static/img/选择图片.png" class="pic" width="200px">
+                                        <input type="file" class=" goodsimg" name="specimg{$g.key}" style="display:none;">
+                                        <span class="input-group-addon filesize" ></span>
+                                    </div>
+                                    {/if}
+                                    {/volist}
+                                    <!--<input type="hidden" value=1 id="number">-->
+                                    <!--<button id="add" class="btn icon-only shiny btn-blue btn-lg" type="button"><i-->
+                                    <!--class="fa fa-plus"></i></button>-->
+
+                                    <!--//显示规格值-->
+                                    <script>
+                                        //规格值
+                                        $(document).ready(function () {
+
+                                            //数组
+                                            var t1 = null;
+                                            $.ajax({
+                                                type: "get",
+                                                url: "/admin/goods/getspec",
+                                                dataType: "json",
+                                                data: {str: 'specall'},
+                                                async: false,
+                                                success: function (data) {
+                                                    t1 = data;
+                                                }
+                                            });
+                                            text();
+
+                                            function text() {
+                                                $('[data-spec]').change(function () {
+                                                    t = $(this).attr('data-spec');
+                                                    d = $('[data-spec=' + t + ']');
+                                                    v = $('[data-value=' + t + ']');
+                                                    //显示规格值
+                                                    t1[0].map(function (value, key) {
+                                                        if (d.val() == value.spec_name) {
+                                                            //删除值的子节点
+                                                            v.children().filter('option').remove();
+                                                            arr = value.value.split("_");
+                                                            //增加元素
+                                                            arr.map(function (arrV, arrK) {
+                                                                str = '<option >' + arrV + '</option>';
+                                                                v.prepend(str);
+                                                            })
+                                                        }
+                                                        if (d.val() == 0) {
+                                                            //删除值的子节点
+                                                            v.children().filter('option').remove();
+                                                        }
+                                                    });
+
+                                                })
+                                            }
+                                        });
+                                    </script>
+
+                                </trans>
+                                <!--end手风琴2-->
+                            </p>
+                        </div>
+                        <!--end-手风琴2-->
+                        <!--end-手风琴3-->
+                        <div class="tab-pane" id="SimpleTab-3">
+                            <p>
+                                <!--手风琴3-->
+                                <trans oldtip="Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade."
+                                       style="">
+                                    <div style="margin: 20px">
+                                        <select name="goods_classify_id">
+                                            <option value="0">选择分类</option>
+                                            {volist name='class' id='c'}
+                                            <option value="{$c.cid}" {if condition="($c.cid==$classnow)" } selected {/if}>
+                                            {if condition="($c['level']!=0)"} |
+                                            {/if}
+                                            {php} echo str_repeat('--',$c['level']) {/php}
+                                            {$c.c_name}
+                                            </option>
+                                            {/volist}
+                                        </select>
+                                    </div>
+                                    <div style="margin: 20px">
+                                        <span class="graded label label-primary"
+                                              style="margin: 20px;width: 10%;font-size:large"><trans
+                                                oldtip="Primary">选择品牌</trans></span>
+                                        <select name="goods_brand_id">
+                                            <option value="0">选择品牌</option>
+                                            {volist name='brand' id='b'}
+                                            <option value="{$b.goods_brand_id}" {if
+                                                    condition="($b.goods_brand_id==$brandNow)" } selected {/if}>
+                                            {$b.goods_brand_name}
+                                            </option>
+                                            {/volist}
+                                        </select>
+                                        <br/>
+
+                                    </div>
+                                </trans>
+                                <!--end手风琴3-->
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="SimpleTab-4">
+                            <p>
+                                <!--手风琴4-->
+                                <trans oldtip="Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade."
+                                       style="">
+                                <span class="graded label label-primary"
+                                      style="margin: 20px;width: 20%;font-size:large"><trans
+                                        oldtip="Primary"><span
+                                        style="color:#ff0000">*</span>商品描述:</trans></span>
+                                    <textarea style="width: 98%;margin-left: 20px;" id="content"
+                                              name="goods_desc_details">{$gd.goods_desc_details}</textarea>
+                                </trans>
+                                <!--手风琴4-->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                </br>
+                <button class="btn btn-success " type="submit" style="margin: 30px;">保存 <i
+                        class="fa fa-check right"></i>
+                </button>
+            </form>
+
+            <!--end==============================================================================================================================-->
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+<script type="text/javascript">
+    var ue = UE.getEditor('content');
+</script>
+
+{include file='photo/clow'}
+
+</body>
+<!--  /Body -->
+
+</html>

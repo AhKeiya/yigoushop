@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>Form Data Pickers</title>
+
+    {include file='photo/chead'}
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+<!-- Loading Container -->
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<!--  /Loading Container -->
+<!-- Navbar --> <!-- 头部 -->
+{include file='base/top'}
+<!-- /Navbar -->
+<!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar --><!--左侧栏目-->
+        {include file='base/left'}
+        {include file='photo/c_chatbar'}
+
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li class="active">
+
+                        <i class="fa fa-home"></i>
+                        <a href="/admin/index/index">
+                            主页
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /Page Breadcrumb -->
+            <!-- Page Header -->
+            <div class="page-header position-relative">
+
+                <div class="header-title">
+                    <h1>
+                        品牌
+                    </h1>
+                </div>
+
+                <!--Header Buttons-->
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="#">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+                <!--Header Buttons End-->
+            </div>
+            <!-- /Page Header -->
+            <!-- Page Body --><!-- 内容添加页面身体 -->
+<!--==============================================================================================================================-->
+
+            <a href="g_brand_new"><button class="btn shiny btn-primary " type="button">添加品牌</button></a>
+            <button class="btn shiny btn-danger " type="button">批量删除</button>
+
+            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="simpledatatable" aria-describedby="simpledatatable_info">
+                <thead>
+                <tr role="row">
+                    <th style="width: 1%;" class="sorting_disabled" rowspan="1"  >
+                        <div class="checker">
+                            <label>
+                                <input type="checkbox" class="group-checkable" data-set="#flip .checkboxes">
+                                <span class="text"></span>
+                            </label>
+                        </div>
+                    </th>
+                    <th  class="sorting_disabled" rowspan="1" width="5%">
+                        品牌名称
+                    </th>
+                    <th  class="sorting_disabled" rowspan="1" width="30%">
+                        图片
+                    </th>
+
+                    <th  class="sorting_disabled" rowspan="1" width="5%">
+                        排序
+                    </th>
+                    <th  class="sorting_disabled" rowspan="1" width="5%" >
+                        操作
+                    </th>
+
+                </thead>
+                <form action="goods_brand_sort" method="post">
+                    <tbody>
+                    <tr class="odd">
+                        {foreach $list as $i}
+                        <td class="">
+                            <div class="checker">
+                                <label>
+                                    <input type="checkbox" class="group-checkable" data-set="#flip .checkboxes">
+                                    <span class="text"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="">
+                            {$i.goods_brand_name}
+                        </td>
+                        <td class="">
+                            <img style="height: 30%" src="{$i.goods_brand_img}" alt="">
+                        </td>
+
+                        <td class="text-center">
+                            <input name="{$i.goods_brand_id}" type="text" style="width: 30px" value="{$i.level}">
+                        </td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i><trans oldtip=" Edit" newtip="编辑" style="">编辑</trans></a>
+                            <a href="goods_brand_del_one?id={$i.goods_brand_id}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i><trans oldtip=" Delete" newtip="删除">删除</trans></a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    <button type="submit">排序</button>
+                    </tbody>
+                </form>
+
+            </table>
+            </br>
+
+
+            {$list->render()}
+
+
+
+
+            <!--end==============================================================================================================================-->
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+{include file='photo/clow'}
+
+</body>
+<!--  /Body -->
+
+</html>
